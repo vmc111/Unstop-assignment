@@ -11,6 +11,12 @@ export type AuthUser = {
 
 const STORAGE_KEY = 'unstop_auth_user'
 
+function emitAuthChanged() {
+  try {
+    window.dispatchEvent(new Event('auth-changed'))
+  } catch {}
+}
+
 export function isAuthenticated(): boolean {
   return !!localStorage.getItem(STORAGE_KEY)
 }
@@ -27,10 +33,12 @@ export function getStoredUser(): AuthUser | null {
 
 export function storeUser(user: AuthUser) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(user))
+  emitAuthChanged()
 }
 
 export function clearUser() {
   localStorage.removeItem(STORAGE_KEY)
+  emitAuthChanged()
 }
 
 export async function loginApi(params: { username?: string; email?: string; password: string }) {
