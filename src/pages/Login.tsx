@@ -9,9 +9,9 @@ export default function Login() {
   )
 
   return (
-    <div className="h-[100dvh] w-full bg-[#F4F4F4] flex items-center justify-between p-[75px_74px] lg:overflow-hidden">
+    <div className="h-[100dvh] w-full bg-[#F4F4F4] flex items-center justify-center p-[24px] md:p-[75px_74px] overflow-y-auto scrollbar-hidden md:overflow-hidden">
       {renderBannerImage()}
-      <LoginForm className="flex-1 max-h-[80dvh] overflow-y-auto scrollbar-hidden lg:max-w-[50dvw]" />
+      <LoginForm className="flex-1 h-fit md:max-h-[80dvh] md:overflow-y-auto scrollbar-hidden lg:max-w-[50dvw]" />
     </div>
   )
 }
