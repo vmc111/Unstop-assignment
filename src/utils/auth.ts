@@ -6,6 +6,7 @@ export type AuthUser = {
   lastName?: string
   image?: string
   token: string
+  gender?: string
 }
 
 const STORAGE_KEY = 'unstop_auth_user'
@@ -58,6 +59,7 @@ export async function loginApi(params: { username?: string; email?: string; pass
     lastName: data.lastName,
     image: data.image,
     token: data.token,
+    gender: data.gender,
   }
   storeUser(user)
   return user
